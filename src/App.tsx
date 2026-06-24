@@ -13,6 +13,8 @@ const initialSettings: ViewerSettings = {
 };
 
 const logoUrl = `${import.meta.env.BASE_URL}3dify-logo-clean.png`;
+const grapesDemoUrl = `${import.meta.env.BASE_URL}demo-photo.jpg`;
+const cityDemoUrl = `${import.meta.env.BASE_URL}demo-city.jpg`;
 
 type PhotoState = {
   url: string;
@@ -69,6 +71,12 @@ function App() {
         <section className="controls-bar" aria-label="Controls">
           <div className="action-cluster">
             <ImageUploader onImageSelected={loadPhoto} />
+            <button className="button subtle" type="button" onClick={() => loadPhoto(grapesDemoUrl)}>
+              Grapes
+            </button>
+            <button className="button subtle" type="button" onClick={() => loadPhoto(cityDemoUrl)}>
+              City
+            </button>
             <button className="button subtle" type="button" onClick={resetApp} disabled={!hasPhoto}>
               Reset
             </button>

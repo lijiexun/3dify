@@ -5,6 +5,7 @@
 ## Features
 
 - Upload JPG, PNG, or WebP images
+- Try bundled demo photos
 - Browser-based 2.5D rendering with Three.js
 - AI depth estimation with a smooth fallback depth map
 - Mouse parallax, manual controls, and optional eye tracking
@@ -44,3 +45,8 @@ npm run preview
 ## Notes
 
 3Dify runs in the browser. Uploaded photos are processed locally for display, and webcam access is only requested when eye tracking is enabled.
+
+Demo photos:
+
+- [Person holding grapes](https://unsplash.com/photos/person-holding-grapes-vGQ49l9I4EE)
+- [Cityscape during daytime](https://unsplash.com/photos/cityscape-during-daytime-IA8FR0RyJDE)

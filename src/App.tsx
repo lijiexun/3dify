@@ -12,6 +12,8 @@ const initialSettings: ViewerSettings = {
   manualControls: false,
 };
 
+const logoUrl = `${import.meta.env.BASE_URL}3dify-logo-clean.png`;
+
 type PhotoState = {
   url: string;
   aspectRatio: number;
@@ -58,7 +60,7 @@ function App() {
       <header className="app-header">
         <div className="brand-block">
           <div className="brand-mark-row">
-            <img className="brand-logo" src="/3dify-logo-clean.png" alt="" aria-hidden="true" />
+            <img className="brand-logo" src={logoUrl} alt="" aria-hidden="true" />
             <h1>3Dify</h1>
           </div>
           <p>Turn a flat photo into a subtle 3D photo window.</p>

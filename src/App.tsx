@@ -15,6 +15,7 @@ const initialSettings: ViewerSettings = {
 const logoUrl = `${import.meta.env.BASE_URL}3dify-logo-clean.png`;
 const grapesDemoUrl = `${import.meta.env.BASE_URL}demo-photo.jpg`;
 const cityDemoUrl = `${import.meta.env.BASE_URL}demo-city.jpg`;
+const cakeDemoUrl = `${import.meta.env.BASE_URL}demo-cake.jpg`;
 
 type PhotoState = {
   url: string;
@@ -76,6 +77,9 @@ function App() {
             </button>
             <button className="button subtle" type="button" onClick={() => loadPhoto(cityDemoUrl)}>
               City
+            </button>
+            <button className="button subtle" type="button" onClick={() => loadPhoto(cakeDemoUrl)}>
+              Cake
             </button>
             <button className="button subtle" type="button" onClick={resetApp} disabled={!hasPhoto}>
               Reset

@@ -205,7 +205,7 @@ h1 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   gap: 6px;
   align-items: center;
   flex: 0 0 auto;
@@ -657,7 +657,7 @@ h1 {
 
   .action-cluster {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .toggle-group {

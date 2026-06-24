@@ -50,3 +50,4 @@ Demo photos:
 
 - [Person holding grapes](https://unsplash.com/photos/person-holding-grapes-vGQ49l9I4EE)
 - [Cityscape during daytime](https://unsplash.com/photos/cityscape-during-daytime-IA8FR0RyJDE)
+- [Pink and white cake](https://unsplash.com/photos/pink-and-white-cake-on-white-ceramic-plate-QNyRp21hb5I)

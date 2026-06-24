@@ -63,11 +63,16 @@ function ImageUploader({ demos, onImageSelected }: ImageUploaderProps) {
     setIsCheckingUrl(true);
     setUrlStatus('Checking image...');
 
-    const isValidImage = await canLoadImage(trimmedUrl);
+    const imageCheck = await checkImageUrl(trimmedUrl);
     setIsCheckingUrl(false);
 
-    if (!isValidImage) {
-      setUrlStatus('This image could not be loaded. Try a direct image URL with CORS enabled.');
+    if (imageCheck === 'blocked-by-cors') {
+      setUrlStatus('This is an image, but its server blocks WebGL use. Download it and upload the file instead.');
+      return;
+    }
+
+    if (imageCheck === 'not-image') {
+      setUrlStatus('This image could not be loaded. Try a direct JPG, PNG, or WebP URL.');
       return;
     }
 
@@ -163,12 +168,28 @@ function isLikelyUrl(value: string) {
   }
 }
 
-function canLoadImage(url: string) {
+type ImageUrlCheck = 'usable' | 'blocked-by-cors' | 'not-image';
+
+async function checkImageUrl(url: string): Promise<ImageUrlCheck> {
+  const corsImageLoads = await canLoadImage(url, true);
+
+  if (corsImageLoads) {
+    return 'usable';
+  }
+
+  const plainImageLoads = await canLoadImage(url, false);
+  return plainImageLoads ? 'blocked-by-cors' : 'not-image';
+}
+
+function canLoadImage(url: string, useCors: boolean) {
   return new Promise<boolean>((resolve) => {
     const image = new Image();
     const timeout = window.setTimeout(() => resolve(false), 8000);
 
-    image.crossOrigin = 'anonymous';
+    if (useCors) {
+      image.crossOrigin = 'anonymous';
+    }
+
     image.onload = () => {
       window.clearTimeout(timeout);
       resolve(Boolean(image.naturalWidth && image.naturalHeight));
